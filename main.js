@@ -1,21 +1,23 @@
 require("dotenv").config();
 const express = require("express");
 const { OpenAI } = require("openai");
+const cors = require("cors");
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
-app.get("/getResponse", async (req, res) => {
+app.post("/getResponse", async (req, res) => {
     try {
         const userPrompt = req.body.userPrompt;
         const response = await openai.chat.completions.create({
             messages: [{ role: "user", content: userPrompt }],
             model: "gpt-3.5-turbo",
-            max_tokens: 10,
+            max_tokens: 300,
         });
         console.log(response.choices[0].message.content);
         res.send(response.choices[0].message.content);
