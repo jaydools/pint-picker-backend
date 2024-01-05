@@ -4,11 +4,7 @@ const { OpenAI } = require("openai");
 const cors = require("cors");
 
 const app = express();
-app.use(
-    cors({
-        origin: "https://pint-picker-f95250ec87ce.herokuapp.com/",
-    })
-);
+app.use(cors());
 app.use(express.json());
 
 const openai = new OpenAI({
