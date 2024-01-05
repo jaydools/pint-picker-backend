@@ -4,7 +4,11 @@ const { OpenAI } = require("openai");
 const cors = require("cors");
 
 const app = express();
-app.use(cors());
+app.use(
+    cors({
+        origin: "https://pint-picker-f95250ec87ce.herokuapp.com/",
+    })
+);
 app.use(express.json());
 
 const openai = new OpenAI({
@@ -20,7 +24,9 @@ app.post("/getResponse", async (req, res) => {
             max_tokens: 300,
         });
         console.log(response.choices[0].message.content);
-        res.send(response.choices[0].message.content);
+        res.status(200).json({
+            message: response.choices[0].message.content,
+        });
     } catch (error) {
         console.error(error);
         res.status(500).send("System error.. self destruct!");
