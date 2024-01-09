@@ -4,8 +4,8 @@ const { OpenAI } = require("openai");
 const cors = require("cors");
 
 const app = express();
-app.use(cors({ methods: "GET,HEAD,PUT,PATCH,POST,DELETE, OPTIONS" }));
-app.options("*", cors());
+app.use(cors({ methods: "POST, OPTIONS" }));
+app.options("/getResponse", cors());
 app.use(express.json());
 
 const openai = new OpenAI({
