@@ -3,7 +3,7 @@
 ## Link to client server. [https://github.com/jaydools/pint-picker](https://github.com/jaydools/pint-picker)
 
 ### Installation
-Clone the repository: [[https://github.com/jaydools/build-a-bouq-server](https://github.com/jaydools/pint-picker)](https://github.com/jaydools/pint-picker-backend.git)
+Clone the repository: (https://github.com/jaydools/pint-picker)](https://github.com/jaydools/pint-picker-backend.git)
 
 npm install:
 
